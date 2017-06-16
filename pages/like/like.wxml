@@ -1,0 +1,30 @@
+
+<view>
+
+ <image class="profile"  src="/images/Profile.png" bindtap="profile" />
+  <image class="swap"  src="/images/SwipeTinder.png" bindtap="" />
+<image class="chat"  src="/images/Chat.png" bindtap="chat" />
+  <view class="page__bd">
+    <view class="section">
+      
+      <view  >
+          <view   animation="{{animation}}" >
+           <image class="image1" model="aspectFit" src="../resources/woman/{{numPicOld}}.png" />
+         
+     </view>
+      <view  animation="{{animation1}}" >
+           <image class="image2" model="aspectFit" src="../resources/woman/{{numPic}}.png" />
+         
+     </view>
+
+
+     
+     <view  >
+   <image class="like"  src="/images/like_icon.png" bindtap="like" />
+         <image class="dislike"  src="/images/dislike_icon.png" bindtap="dislike" />
+     </view>
+     
+      </view>
+    </view>
+  </view>
+</view>

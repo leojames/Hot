@@ -1,0 +1,134 @@
+<scroll-view scroll-y="true"  style="height:600px" class="classname">
+
+
+        <view class="page-body-form">
+          <picker range="{{sourceType}}" bindchange="sourceTypeChange" value="{{sourceTypeIndex}}">
+            <view class="page-body-form-picker">
+              <view class="page-body-form-picker-key">图片来源</view>
+              <view class="page-body-form-picker-value">{{sourceType[sourceTypeIndex]}}</view>
+            </view>
+          </picker>
+          <picker range="{{sizeType}}" bindchange="sizeTypeChange" value="{{sizeTypeIndex}}">
+            <view class="page-body-form-picker">
+              <view class="page-body-form-picker-key">图片质量</view>
+              <view class="page-body-form-picker-value">{{sizeType[sizeTypeIndex]}}</view>
+            </view>
+          </picker>
+          <picker range="{{count}}" bindchange="countChange" value="{{countIndex}}">
+            <view class="page-body-form-picker" style="border-bottom: none;">
+              <view class="page-body-form-picker-key">数量限制</view>
+              <view class="page-body-form-picker-value">{{count[countIndex]}}</view>
+            </view>
+          </picker>
+        </view>
+        <view class="images-wrapper">
+          <text class="images-text">请选择图片</text>
+          <view class="images-list">
+            <block wx:for="{{imageList}}" wx:for-item="image">
+              <image src="{{image}}" class="images-image" data-src="{{image}}" bindtap="previewImage"></image>
+            </block>
+            <view class="images-image image-plus" bindtap="chooseImage">
+              <view class="image-plus-horizontal"></view>
+              <view class="image-plus-vertical"></view>
+            </view>
+          </view>
+        </view>
+    <view class="btn-area">
+      <button bindtap="uploadFile">提交</button>
+      
+    </view>
+  
+
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+<input name ="openid" type="hidden" value="{{userInfo.openid}}"/>
+  <view class="section">
+     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover" bindtap="getProfile"></image> 
+    </view>
+   
+     <view class="section">
+      <view class="section__title">昵称</view>
+      <input name="nickName" type="text"  value="{{userInfo.nickName}}" maxlength="20"/>
+    </view>
+    
+    <view class="section section_gap">
+      <view class="section__title">性别</view>
+      <radio-group name="Sex" value="{{userInfo.gender}}">
+        <label><radio value="1"/>男</label>
+        <label><radio value="0"/>女</label>
+      </radio-group>
+    </view>
+
+
+
+  <view class="page__bd">
+    <view class="section">
+      <view class="section__title">地区</view>
+      <picker name="country" bindchange="countryChange" value="{{userInfo.country}}" range="{{CountryArray}}">
+        <view class="picker">
+       {{CountryArray[countryIndex]}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="section">
+      <view class="section__title">生日</view>
+        <picker name="birth" mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <view class="picker">
+           {{date}}
+        </view>
+      </picker>
+    </view>
+
+ 
+    <view class="section">
+      <view class="section__title">行业</view>
+      <picker name="industry" bindchange="industryChange" value="{{industryIndex}}" range="{{IndustryArray}}">
+        <view class="picker">
+       {{IndustryArray[industryIndex]}}
+        </view>
+      </picker>
+    </view>
+
+    
+    <view class="section">
+      <view class="section__title">职位</view>
+      <picker name="job" bindchange="jobChange" value="{{jobIndex}}" range="{{JobArray}}">
+        <view class="picker">
+       {{JobArray[jobIndex]}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="section">
+      <view class="section__title">公司</view>
+      <input name="company" type="text"  value="" maxlength="20"/>
+    </view>
+   <view class="section">
+      <view class="section__title">家乡</view>
+      <input name="province" type="text"  value="{{userInfo.province}}" maxlength="20"/>
+    </view>
+       <view class="section">
+      <view class="section__title">经常出没</view>
+      <input name="city" type="text"  value="{{userInfo.city}}" maxlength="20"/>
+    </view>
+       <view class="section">
+      <view class="section__title">个人签名</view>
+      <input name="signature" type="text"  value="" maxlength="20"/>
+    </view>
+   
+   <view class="section">
+      <view class="section__title">微信号</view>
+      <input name="weixin" type="text"  value="" maxlength="20"/>
+    </view>
+
+  </view>
+
+
+
+    <view class="btn-area">
+      <button formType="submit">提交</button>
+      <button formType="reset">重置</button>
+    </view>
+    </form>
+</scroll-view>

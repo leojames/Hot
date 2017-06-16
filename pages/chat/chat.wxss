@@ -1,0 +1,13 @@
+.log-list {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+.log-item {
+  margin: 10rpx;
+}
+.chat {
+  width: 320px;
+  height: 568px;
+  margin: 10rpx;
+}

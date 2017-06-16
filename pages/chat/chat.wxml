@@ -1,0 +1,6 @@
+<!--logs.wxml-->
+<view>
+
+<image class="chat" src="/images/dialog.png"></image>
+
+</view>
